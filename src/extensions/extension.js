@@ -108,6 +108,8 @@ class Extension extends EventEmitter {
   }
 
   onMessage(message, bot) {
+    this.emit('rawMessage', bot, message);
+
     const data = message.content.split(' ');
     if (data.length >= 2) {
       const id = data[0];
